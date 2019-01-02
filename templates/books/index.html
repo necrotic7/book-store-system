@@ -3,7 +3,10 @@
 {% block main %}
   <div class="row">
     <div class="col">
-      <a href="{% url 'books:add' %}" class="btn btn-outline-info float-right">新增書籍</a>
+      {% if perms.books.add_book %} #如果擁有新增書籍的權限，才顯示該按鈕
+        <a href="{% url 'books:add' %}" class="btn btn-outline-info float-right">新增書籍</a>
+      {% endif %}
+      
       <h2>書籍列表</h2>
       <hr>
       <table class="table table-striped">

@@ -5,7 +5,12 @@
   <hr>
   <p>書名: {{ book.name }}</p>
   <p>價格: {{ book.price }}</p>
+  <p>作者: {{ book.author.all | join:'、' }}</p>
+  <p>出版社: {{ book.publish }}</p>
+  <p>分類: {{ book.classification }}</p>
+  <p>標籤: {{ book.tags.all | join:'、' }}</p>
   <p>簡介: {{ book.introduction | linebreaksbr }}</p>
+  
 
   <a href="{% url 'books:index' %}" class="btn btn-primary"><< Back</a>
   <a href="{% url 'books:edit' book.id %}" class="btn btn-info">Edit</a>
