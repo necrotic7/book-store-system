@@ -129,3 +129,19 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/' #登入後重新導向至
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/' #宣告登入的路由所在
+
+
+# email
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_USE_TLS = True
+
+EMAIL_PORT = 587
+
+with open(os.path.join(BASE_DIR, 'core', 'email.txt'), 'r') as f:
+    data = f.readlines()
+
+EMAIL_HOST_USER = data[0].replace('\n', '')
+
+EMAIL_HOST_PASSWORD = data[1].replace('\n', '')
